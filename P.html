@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Security Alert</title>
+  <style>
+    /* Reset & Fullscreen App Setup */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      color: #000000;
+      overflow: hidden;
+    }
+
+    /* Fullscreen Application Container */
+    .app-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      /* Support notch / dynamic island safe areas on modern devices */
+      padding-top: env(safe-area-inset-top, 20px);
+      padding-bottom: env(safe-area-inset-bottom, 24px);
+    }
+
+    /* Main Content Area - Vertically Centered */
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 32px;
+      text-align: center;
+    }
+
+    /* Shield Icon Styling */
+    .shield-icon-container {
+      margin-bottom: 28px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Typography */
+    .heading {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.25;
+      color: #000000;
+      letter-spacing: -0.4px;
+      margin-bottom: 12px;
+    }
+
+    .body-text {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.4;
+      color: #3C3C43;
+      max-width: 310px;
+      margin-bottom: 20px;
+      letter-spacing: -0.1px;
+    }
+
+    .link-text {
+      font-size: 15px;
+      font-weight: 400;
+      color: #0066CC;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      cursor: pointer;
+      line-height: 1.3;
+    }
+
+    /* Bottom Action Area */
+    .bottom-container {
+      padding: 16px 20px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .primary-btn {
+      width: 100%;
+      max-width: 440px;
+      height: 56px;
+      background-color: #000000;
+      color: #ffffff;
+      border: none;
+      border-radius: 28px;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -0.2px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      outline: none;
+      transition: opacity 0.15s ease;
+    }
+
+    .primary-btn:active {
+      opacity: 0.85;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- App Interface Container -->
+  <div class="app-container">
+    
+    <!-- Centered Main Content -->
+    <div class="main-content">
+      
+      <!-- Shield Check Icon -->
+      <div class="shield-icon-container">
+        <svg width="56" height="64" viewBox="0 0 56 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Shield Outline Path -->
+          <path d="M28 3L4 12V28C4 44.5 14.5 54.8 28 61C41.5 54.8 52 44.5 52 28V12L28 3Z" 
+                stroke="#000000" 
+                stroke-width="3" 
+                stroke-linecap="round" 
+                stroke-linejoin="round"/>
+          <!-- Checkmark Path -->
+          <path d="M18 31.5L25 38.5L38 23.5" 
+                stroke="#000000" 
+                stroke-width="3" 
+                stroke-linecap="round" 
+                stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="heading">
+        We stopped this payment to<br>keep you safe
+      </h1>
+
+      <!-- Body Copy -->
+      <p class="body-text">
+        We believe this payment could be a scam, so we stepped in to protect your money.
+      </p>
+
+      <!-- Action Link -->
+      <a class="link-text" onclick="return false;">
+        Learn how to keep yourself safe from scams
+      </a>
+
+    </div>
+
+    <!-- Bottom Button Container -->
+    <div class="bottom-container">
+      <button class="primary-btn" type="button">
+        Got It
+      </button>
+    </div>
+
+  </div>
+
+</body>
