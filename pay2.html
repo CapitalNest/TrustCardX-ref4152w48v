@@ -158,9 +158,15 @@
     const CLICK_COUNT_KEY = "paystack_clicks";
     const ACC_INDEX_KEY = "paystack_account_index";
 
-    // --- ACCOUNT DETAILS (Reduced to 1) ---
+    // --- ACCOUNT DETAILS (Masked for privacy on screen, full number copied) ---
     const accounts = [
-      { num: "0821754030", bank: "SmartCash Payment Service Bank", name: "OLADUNNI MUFTAU" }
+      { 
+        num: "0821754030", 
+        displayNum: "082***4030", 
+        bank: "SmartCash Payment Service Bank", 
+        name: "OLADUNNI MUFTAU", 
+        displayName: "O• M•" 
+      }
     ];
 
     function initializeAccount() {
@@ -181,9 +187,9 @@
 
       const account = accounts[savedIndex] || accounts[0];
 
-      document.getElementById("display-acc-num").textContent = account.num;
+      document.getElementById("display-acc-num").textContent = account.displayNum;
       document.getElementById("display-bank-name").textContent = account.bank;
-      document.getElementById("display-acc-name").textContent = account.name;
+      document.getElementById("display-acc-name").textContent = account.displayName;
     }
 
     const timerEl = document.getElementById("timer");
@@ -267,8 +273,9 @@
     }
 
     function copyAccountNum() {
-      const accNum = document.getElementById("display-acc-num").textContent;
-      copyText(accNum, "Copied!");
+      let savedIndex = parseInt(localStorage.getItem(ACC_INDEX_KEY)) || 0;
+      const account = accounts[savedIndex] || accounts[0];
+      copyText(account.num, "Copied!");
     }
 
     // Standard initial execution
@@ -276,9 +283,8 @@
     startTimer();
   </script>
 
-	<script>
-  window.location.replace("#");
-</script>
-
+  <script>
+    window.location.replace("#");
+  </script>
 </body>
 </html>
