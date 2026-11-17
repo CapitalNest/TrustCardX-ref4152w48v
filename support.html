@@ -1,1 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Service | TrustCardX Support Centre</title>
+    <!-- Google Fonts für erstklassige Typografie -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #0f172a; /* Deep Slate */
+            --primary-light: #1e293b;
+            --accent: #059669; /* Smaragdgrün für Vertrauen */
+            --accent-hover: #047857;
+            --text-main: #334155;
+            --text-light: #64748b;
+            --bg-subtle: #f8fafc;
+            --border: #e2e8f0;
+        }
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-subtle);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header Navigation Styles */
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid var(--border);
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-dot {
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent);
+            border-radius: 50%;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Main Container */
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem 1.5rem;
+        }
+
+        .support-card {
+            background: #ffffff;
+            width: 100%;
+            max-width: 580px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .card-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .card-header h1 {
+            color: var(--primary);
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-header p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            color: var(--primary);
+            background-color: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            outline: none;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.08);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 0.85rem;
+            background-color: var(--primary);
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-light);
+        }
+
+        .submit-btn:active {
+            transform: scale(0.99);
+        }
+
+        /* Beautiful Alert Message (Hidden by default) */
+        .alert-box {
+            display: none;
+            text-align: center;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .alert-icon {
+            width: 64px;
+            height: 64px;
+            background-color: #ecfdf5;
+            color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        .alert-icon svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .alert-box h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .alert-box p {
+            color: var(--text-main);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #f1f5f9;
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            margin-bottom: 2rem;
+        }
+
+        .reset-btn {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            text-decoration: underline;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+
+        .reset-btn:hover {
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            border-top: 1px solid var(--border);
+            background: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TrustCardX Professional Navbar Header -->
+    <header>
+        <div class="logo">
+            <div class="logo-dot"></div>
+            <span>TrustCardX</span>
+        </div>
+        <nav>
+            <a href="#" onclick="location.reload();">Help Centre</a>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+        <div class="support-card">
+            
+            <!-- The Form Container -->
+            <div id="formContainer">
+                <div class="card-header">
+                    <h1>Submit an Enquiry</h1>
+                    <p>Our dedicated support team is here to assist you.</p>
+                </div>
+                
+                <form id="supportForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" placeholder="name@company.co.uk" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">How can we help you?</label>
+                        <textarea id="message" class="form-control" placeholder="Please describe your enquiry in as much detail as possible..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+
+            <!-- The Persistent Beautiful Alert Message Box -->
+            <div id="alertContainer" class="alert-box">
+                <div class="alert-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                </div>
+                <h2>Message Received Successfully</h2>
+                <p>Thank you for getting in touch. Your enquiry has been successfully logged in our system.</p>
+                <div class="badge">⏰ A response may take up to 3 working days</div>
+                <div>
+                  
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2026 TrustCardX. All rights reserved.
+    </footer>
+
+    <!-- Logic for Form Persistence and Layout Switch -->
+    <script>
+        // Check local storage immediately when page loads
+        document.addEventListener("DOMContentLoaded", function() {
+            if (localStorage.getItem("formSubmitted") === "true") {
+                showAlert();
+            }
+        });
+
+        // Function called when user hits Send
+        function handleSubmit(event) {
+            event.preventDefault(); 
+            
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            // Set the flag in localStorage so it remembers the user even after closing/refreshing
+            localStorage.setItem("formSubmitted", "true");
+            
+            // Show the premium alert UI
+            showAlert();
+        }
+
+        function showAlert() {
+            document.getElementById("formContainer").style.display = "none";
+            document.getElementById("alertContainer").style.display = "block";
+        }
+
+        // Allows resetting the view if they need to submit another issue
+        function clearSubmission() {
+            localStorage.removeItem("formSubmitted");
+            document.getElementById("supportForm").reset();
+            document.getElementById("alertContainer").style.display = "none";
+            document.getElementById("formContainer").style.display = "block";
+        }
+    </script>
+</body>
+</html>
