@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gift Card Delivery</title>
+
+<style>
+:root{
+    --primary:#0f9d58;
+    --text-dark:#111;
+    --text-light:#666;
+    --border:#e5e7eb;
+    --bg:#ffffff;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text-dark);
+    min-height:100vh;
+}
+
+/* Header */
+header{
+    padding:22px 6%;
+    border-bottom:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:700;
+}
+
+.secure{
+    font-size:14px;
+    color:var(--text-light);
+}
+
+/* Main */
+main{
+    display:flex;
+    justify-content:center;
+    padding:60px 6%;
+}
+
+.content{
+    width:100%;
+    max-width:520px;
+}
+
+/* Title */
+h1{
+    font-size:28px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    font-size:16px;
+    color:var(--text-light);
+    margin-bottom:35px;
+}
+
+/* Gift Info */
+.gift{
+    display:flex;
+    align-items:center;
+    margin-bottom:35px;
+}
+
+.gift img{
+    width:70px;
+    margin-right:16px;
+}
+
+.gift h3{
+    font-size:18px;
+}
+
+.gift span{
+    display:block;
+    font-size:14px;
+    color:var(--text-light);
+}
+
+/* Input */
+.label{
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:8px;
+}
+
+.input-wrap{
+    position:relative;
+}
+
+.input-wrap svg{
+    position:absolute;
+    top:50%;
+    left:14px;
+    transform:translateY(-50%);
+    width:20px;
+    fill:#9ca3af;
+}
+
+input{
+    width:100%;
+    padding:16px 16px 16px 48px;
+    border:1.5px solid var(--border);
+    border-radius:10px;
+    font-size:16px;
+    outline:none;
+    transition:0.3s;
+}
+
+input:focus{
+    border-color:var(--primary);
+    box-shadow:0 0 0 4px rgba(15,157,88,0.15);
+}
+
+/* Payment Section */
+.payment-section{
+    margin-top:28px;
+}
+
+.payment-card{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px;
+    border:1.5px solid var(--primary);
+    border-radius:10px;
+    background:rgba(15, 157, 88, 0.03);
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.payment-card-left{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.radio-indicator{
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    border:2px solid var(--primary);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+}
+
+.radio-indicator::after{
+    content:"";
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:var(--primary);
+}
+
+.card-brand-icon{
+    width:38px;
+    height:26px;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:4px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+}
+
+.card-details h4{
+    font-size:15px;
+    font-weight:600;
+}
+
+.card-details span{
+    font-size:13px;
+    color:var(--text-light);
+}
+
+.badge{
+    font-size:12px;
+    font-weight:600;
+    color:var(--primary);
+    background:rgba(15, 157, 88, 0.1);
+    padding:4px 10px;
+    border-radius:20px;
+}
+
+/* Button */
+button{
+    width:100%;
+    margin-top:28px;
+    padding:16px;
+    border:none;
+    border-radius:12px;
+    background:var(--primary);
+    color:#fff;
+    font-size:17px;
+    font-weight:700;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#0b8043;
+}
+
+/* Footer */
+footer{
+    text-align:center;
+    font-size:14px;
+    color:var(--text-light);
+    margin-top:50px;
+}
+
+@media(max-width:600px){
+    h1{font-size:24px;}
+    main{padding-top:40px;}
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">TrustCardX</div>
+    <div class="secure">Secure Checkout</div>
+</header>
+
+<main>
+    <div class="content">
+
+        <h1>Where should we send your gift card?</h1>
+        <p class="subtitle">
+            Your digital gift card will be sent instantly to the email address provided below.
+        </p>
+
+        <div class="gift">
+            <img style="border-radius: 12px;" src="https://th.bing.com/th/id/OIP.UxJzinECo-2yco7qY_Y23gHaJD?w=146&h=180&c=7&r=0&o=7&pid=1.7&rm=3">
+            <div>
+                <h3>Apple Gift Card</h3>
+                <span>Instant digital delivery</span>
+            </div>
+        </div>
+
+        <div class="label">Email Address</div>
+        <div class="input-wrap">
+            <svg viewBox="0 0 24 24">
+                <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 002-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+            <input type="email" placeholder="you@example.com" required>
+        </div>
+
+        <!-- Payment Method Section -->
+        <div class="payment-section">
+            <div class="label">Payment Method</div>
+            <div class="payment-card">
+                <div class="payment-card-left">
+                    <div class="radio-indicator"></div>
+                    <div class="card-brand-icon">
+                        <svg width="24" height="15" viewBox="0 0 36 24" fill="none">
+                            <rect width="36" height="24" rx="3" fill="#1A1876"/>
+                            <circle cx="14" cy="12" r="7" fill="#EB001B"/>
+                            <circle cx="22" cy="12" r="7" fill="#F79E1B" fill-opacity="0.8"/>
+                        </svg>
+                    </div>
+                    <div class="card-details">
+                        <h4>Mastercard •••• 7468</h4>
+                        <span>Saved Card</span>
+                    </div>
+                </div>
+                <span class="badge">Standard</span>
+            </div>
+        </div>
+
+        <a href="./order.html"><button>Continue</button></a>
+
+        <footer>
+            Gift card details will be sent immediately by email.
+        </footer>
+
+    </div>
+</main>
+
+</body>
+</html>
